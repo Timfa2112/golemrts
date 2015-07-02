@@ -16,13 +16,13 @@ public class NetworkConnector : MonoBehaviour
 	
 	public void Refresh()
 	{
-		MasterServer.RequestHostList("GolemRTS_Server_31536000");	
+        MasterServer.RequestHostList("GolemRTS_Server_31536000");	
 	}
 	
 	public HostData[] FindGames(string searchTerm)
 	{
 		List<HostData> hostData = MasterServer.PollHostList().ToList();
-		
+        
 		if(searchTerm != "")
 			hostData.RemoveAll(o => !o.gameName.Contains(searchTerm));
 		
@@ -60,7 +60,6 @@ public class NetworkConnector : MonoBehaviour
 	{
 		MasterServer.UnregisterHost();
 		
-		OpponentSpawn.ToSpawn = "OnlinePlayer";
 		Application.LoadLevel("GameScene");
 	}
 }

@@ -1,0 +1,36 @@
+Initialize engine version: 4.5.3f3 (fca41a4fabea)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 5700 Series (ID=0x68b8)
+    Vendor:   ATI
+    VRAM:     1010 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.048 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\System.dll (this message is harmless)
+Initialize engine version: 4.5.3f3 (fca41a4fabea)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 5700 Series (ID=0x68b8)
+    Vendor:   ATI
+    VRAM:     1010 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.047 seconds
+desktop: 1920x1080 60Hz; virtual: 3200x1080 at -1280,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\projects\Unity3D\golemrts\Source\GolemRTS\Builds\test_Data\Managed\System.dll (this message is harmless)
