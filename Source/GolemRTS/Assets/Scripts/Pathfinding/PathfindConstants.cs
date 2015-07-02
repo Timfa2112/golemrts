@@ -7,8 +7,8 @@ namespace TimGame.Engine
 {
     public static class PathfindConstants
     {
-        public static readonly float GridSize = 1; //Change this to the width and height of the grid
-        public static readonly RoomData.Type defaultType = RoomData.Type.Passable;
+        public static readonly float GridSize = 1f; //Change this to the width and height of the grid
+        public static readonly RoomData.Type defaultType = RoomData.Type.Impassable;
 
         public enum Directions
         {
@@ -25,17 +25,17 @@ namespace TimGame.Engine
 
         public static Vector2 GridToWorld(int x, int y)
         {
-            return RoundedVector(x * GridSize, y * GridSize);
+			return RoundedVector((float)x * GridSize, (float)y * GridSize);
         }
 
         public static Vector2 WorldToGrid(int x, int y)
         {
-            return RoundedVector(x / GridSize, y / GridSize);
+			return RoundedVector((float)x / GridSize, (float)y / GridSize);
         }
 
         public static Vector2 GridToWorld(float x, float y)
         {
-            return GridToWorld((int)Math.Round(x), (int)Math.Round(y));
+            return GridToWorld((int)Mathf.Round(x), (int)Mathf.Round(y));
         }
 
         public static Vector2 GridToWorld(Vector2 gridPosition)
@@ -45,17 +45,17 @@ namespace TimGame.Engine
 
         public static Vector2 WorldToGrid(float x, float y)
         {
-            return WorldToGrid((int)Math.Round(x), (int)Math.Round(y));
+            return WorldToGrid((int)Mathf.Round(x), (int)Mathf.Round(y));
         }
 
         public static Vector2 WorldToGrid(Vector2 worldPos)
         {
-            return WorldToGrid((int)Math.Round(worldPos.x), (int)Math.Round(worldPos.y));
+            return WorldToGrid((int)Mathf.Round(worldPos.x), (int)Mathf.Round(worldPos.y));
         }
 
         public static Vector2 RoundedVector(float x, float y)
         {
-            return new Vector2((int)Math.Round(x), (int)Math.Round(y));
+            return new Vector2((int)Mathf.Round(x), (int)Mathf.Round(y));
         }
     }
 }

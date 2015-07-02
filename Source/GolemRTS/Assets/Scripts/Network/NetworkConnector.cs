@@ -60,6 +60,7 @@ public class NetworkConnector : MonoBehaviour
 	{
 		MasterServer.UnregisterHost();
 		
+//		OpponentSpawn.ToSpawn = "OnlinePlayer";
 		Application.LoadLevel("GameScene");
 	}
 }
