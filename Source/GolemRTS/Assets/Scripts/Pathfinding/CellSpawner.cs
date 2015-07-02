@@ -6,7 +6,7 @@ namespace TimGame.Engine
 {
     public static class CellSpawner
     {
-        private static List<RoomData> rooms = new List<RoomData>();
+        public static List<RoomData> rooms = new List<RoomData>();
 
         public static RoomData DefineCellFromWorldPos(Vector2 worldPosition, RoomData.Type type)
         {
@@ -16,7 +16,7 @@ namespace TimGame.Engine
 
         public static RoomData DefineCell(Vector2 gridPos, RoomData.Type type)
         {
-            return DefineCell((int)gridPos.y, (int)gridPos.y, type);
+            return DefineCell((int)gridPos.x, (int)gridPos.y, type);
         }
 
         public static RoomData DefineCell(int x, int y, RoomData.Type type)
@@ -41,7 +41,7 @@ namespace TimGame.Engine
 
         public static RoomData GetRoomAtGridPosition(Vector2 pos)
         {
-            return GetRoomAtGridPosition((int)pos.y, (int)pos.y);
+            return GetRoomAtGridPosition((int)pos.x, (int)pos.y);
         }
 
         public static RoomData GetRoomAtGridPosition(int x, int y, bool ignoreDefault = false)
