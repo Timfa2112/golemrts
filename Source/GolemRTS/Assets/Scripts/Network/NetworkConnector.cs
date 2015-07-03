@@ -20,16 +20,15 @@ public class NetworkConnector : MonoBehaviour
 	}
 	
 	public void Refresh()
-	{
+    {
+        MasterServer.ClearHostList();
         MasterServer.RequestHostList("GolemRTS_Server_31536000");	
 	}
 	
-	public HostData[] FindGames(string searchTerm)
-	{
+	public HostData[] showGames(string searchTerm)
+    {
 		List<HostData> hostData = MasterServer.PollHostList().ToList();
-
-        Debug.Log(hostData.Count);
-
+        
 		if(searchTerm != "")
 			hostData.RemoveAll(o => !o.gameName.Contains(searchTerm));
 		

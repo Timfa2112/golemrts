@@ -28,6 +28,8 @@ public class LobbyView : MonoBehaviour {
         refreshTimer.Start();
 
         hosts = new HostData[0];
+
+        connector.Refresh();
 	}
 
     private void refreshTimerHandler(object sender, ElapsedEventArgs e)
@@ -44,7 +46,7 @@ public class LobbyView : MonoBehaviour {
 	void Update () {
         if (updateHostList)
         {
-            hosts = connector.FindGames("");
+            connector.Refresh();
             updateHostList = false;
         }
 	}
@@ -75,7 +77,8 @@ public class LobbyView : MonoBehaviour {
         if (hosts.Length == 0) {
             GUI.Label(new Rect(300, 380, 200, 20), "Nobody seems to be here" + dots);
         }
-
+        /*
+        hosts = connector.showGames("");
 
         for (int i = 0; i < hosts.Length; i++)
         {
@@ -86,6 +89,6 @@ public class LobbyView : MonoBehaviour {
             {
                 connector.Connect(host);
             }
-        }
+        }*/
     }
 }
