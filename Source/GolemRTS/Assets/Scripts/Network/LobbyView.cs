@@ -11,6 +11,7 @@ public class LobbyView : MonoBehaviour {
     Timer refreshTimer;
     HostData[] hosts;
     bool updateHostList;
+    bool successfullyStartedServer;
 
 
     [SerializeField]
@@ -61,7 +62,11 @@ public class LobbyView : MonoBehaviour {
         hostName = GUI.TextField(new Rect(130, 300, 150, 20), hostName);
         if (GUI.Button(new Rect(500, 300, 100, 20), "Start host"))
         {
-            connector.StartServer(hostName, "");
+            successfullyStartedServer = connector.StartServer(hostName, "");
+        }
+        if (successfullyStartedServer)
+        {
+            GUI.Label(new Rect(300, 300, 100, 20), "Host online!");
         }
 
 

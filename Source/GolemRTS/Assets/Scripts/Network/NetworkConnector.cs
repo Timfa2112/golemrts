@@ -7,11 +7,16 @@ public class NetworkConnector : MonoBehaviour
 {
 	public static bool CurrentPlayerIsHost;
 
-	public void StartServer(string gameName, string password)
+	public bool StartServer(string gameName, string password)
 	{
 		CurrentPlayerIsHost = true;
-		Network.InitializeServer(1, 25000, !Network.HavePublicAddress());
-		MasterServer.RegisterHost("GolemRTS_Server_31536000", gameName, password);	
+		NetworkConnectionError nErr = Network.InitializeServer(1, 25000, !Network.HavePublicAddress());
+        if (nErr != NetworkConnectionError.NoError)
+        {
+            return false;
+        }
+		MasterServer.RegisterHost("GolemRTS_Server_31536000", gameName, password);
+        return true;
 	}
 	
 	public void Refresh()
@@ -22,7 +27,9 @@ public class NetworkConnector : MonoBehaviour
 	public HostData[] FindGames(string searchTerm)
 	{
 		List<HostData> hostData = MasterServer.PollHostList().ToList();
-        
+
+        Debug.Log(hostData.Count);
+
 		if(searchTerm != "")
 			hostData.RemoveAll(o => !o.gameName.Contains(searchTerm));
 		
