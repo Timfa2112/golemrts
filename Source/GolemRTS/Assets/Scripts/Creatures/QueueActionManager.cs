@@ -90,6 +90,7 @@ public class QueueActionManager : MonoBehaviour{
         int[] sequenceID = new int[size];
         Vector3[] location = new Vector3[size];
         int[] targetID = new int[size];
+        int[] what = new int[size];
 
 
         stream.Serialize(ref size);
@@ -99,11 +100,13 @@ public class QueueActionManager : MonoBehaviour{
             sequenceID[i] = actionQueue[i].sequenceID;
             location[i] = actionQueue[i].location;
             targetID[i] = actionQueue[i].targetID;
+            what[i] = actionQueue[i].what;
 
             stream.Serialize(ref rawActiontype[i]);
             stream.Serialize(ref sequenceID[i]);
             stream.Serialize(ref location[i]);
             stream.Serialize(ref targetID[i]);
+            stream.Serialize(ref what[i]);
         }
     }
 
@@ -116,15 +119,16 @@ public class QueueActionManager : MonoBehaviour{
 
         for (int i = 0; i < size; i++)
         {
-            int rawActionType = 0, sequenceID = 0, targetID = 0;
+            int rawActionType = 0, sequenceID = 0, targetID = 0, what = 0;
             Vector3 location = Vector3.zero;
 
             stream.Serialize(ref rawActionType);
             stream.Serialize(ref sequenceID);
             stream.Serialize(ref location);
             stream.Serialize(ref targetID);
+            stream.Serialize(ref what);
 
-            actionQueue.Add(CreatureAction.create(rawActionType, sequenceID, location, targetID));
+            actionQueue.Add(CreatureAction.create(rawActionType, sequenceID, location, targetID, what));
         }
     }
 
