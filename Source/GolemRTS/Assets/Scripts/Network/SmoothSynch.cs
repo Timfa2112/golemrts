@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SmoothSynch : MonoBehaviour 
+public abstract class SmoothSynch : MonoBehaviour 
 {
 	private static float smoothStrength = 0.2f;
 	private Vector3 pos;
@@ -12,13 +12,15 @@ public class SmoothSynch : MonoBehaviour
 	{
 		if(stream.isWriting)
 		{
-			if(Network.isServer || true)
+			if(Network.isServer)
 			{
 				pos = transform.localPosition;
 				rot = transform.localRotation;
 				
 				stream.Serialize(ref pos);
 				stream.Serialize(ref rot);
+
+				ServerSynchronize(stream, info);
 			}
 		}
 		else
@@ -28,16 +30,31 @@ public class SmoothSynch : MonoBehaviour
 				stream.Serialize(ref pos);
 				stream.Serialize(ref rot);
 				started = true;
+
+				ServerSynchronize(stream, info);
 			}
 		}
 	}
-	
+
+	protected virtual void ServerSynchronize(BitStream stream, NetworkMessageInfo info)
+	{
+
+	}
+
+	protected virtual void ClientSynchronize(BitStream stream, NetworkMessageInfo info)
+	{
+		
+	}
+
 	void FixedUpdate()
 	{
-		if(started)
+		if(Network.isClient)
 		{
-			transform.localPosition = Vector3.Lerp(transform.localPosition, pos, smoothStrength);
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, rot, smoothStrength);
+			if(started)
+			{
+				transform.localPosition = Vector3.Lerp(transform.localPosition, pos, smoothStrength);
+				transform.localRotation = Quaternion.Slerp(transform.localRotation, rot, smoothStrength);
+			}
 		}
 	}
 }
