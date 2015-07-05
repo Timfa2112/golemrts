@@ -12,36 +12,30 @@ public abstract class SmoothSynch : MonoBehaviour
 	{
 		if(stream.isWriting)
 		{
-			if(Network.isServer)
-			{
-				pos = transform.localPosition;
-				rot = transform.localRotation;
-				
-				stream.Serialize(ref pos);
-				stream.Serialize(ref rot);
+			pos = transform.localPosition;
+			rot = transform.localRotation;
+			
+			stream.Serialize(ref pos);
+			stream.Serialize(ref rot);
 
-				ServerSynchronize(stream, info);
-			}
+			NetworkWrite(stream, info);
 		}
 		else
 		{
-			if(Network.isClient)
-			{
-				stream.Serialize(ref pos);
-				stream.Serialize(ref rot);
-				started = true;
+			stream.Serialize(ref pos);
+			stream.Serialize(ref rot);
+			started = true;
 
-				ServerSynchronize(stream, info);
-			}
+			NetworkRead(stream, info);
 		}
 	}
 
-	protected virtual void ServerSynchronize(BitStream stream, NetworkMessageInfo info)
+	protected virtual void NetworkWrite(BitStream stream, NetworkMessageInfo info)
 	{
 
 	}
 
-	protected virtual void ClientSynchronize(BitStream stream, NetworkMessageInfo info)
+	protected virtual void NetworkRead(BitStream stream, NetworkMessageInfo info)
 	{
 		
 	}
